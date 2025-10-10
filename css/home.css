@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  cursor: none;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #0e1420;
+}
+
+::selection {
+  background: #ffcc00;
+  color: #000;
+}
+
+/* شكل النقطة */
+.cursor-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #795454;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.2s ease, height 0.2s ease,;
+}
+
+/* شكل الدائرة الخارجية */
+.cursor-outline {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.3s ease, height 0.3s ease, border 0.3s ease;
+}
+
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+  pointer-events: none; /* عشان ما يعطلش الكليكات */
+  z-index: 10000; 
+}
+
+/* لما يقف على اللينك */
+.cursor-dot.active {
+  width: 15px;
+  height: 15px;
+}
+
+.cursor-outline.active {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8d8d8d;
+  border-radius: 50px;
+}
+
+header {
+  padding: 0.5em 2em 0.5em 2em;
+  position: sticky;
+  top: 0;  
+  z-index: 1000;
+  background-color: #0e1420;
+}
+
+
+nav ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav li {
+  height: 50px;
+}
+
+nav a {
+  height: 100%;
+  padding: 0 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+.m {
+  margin-right: auto;
+}
+
+.m a {
+  font-weight: 100;
+  font-size: 1.8em;
+  font-family: "Space Mono", monospace;
+}
+
+.con {
+  background-color: #31b0cf;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  backdrop-filter: blur(80px);
+  background-color: #a170c954;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition: right 0.5s ease;
+}
+
+.sidebar.show {
+  right: 0;
+}
+
+.menu-button {
+  display: block;
+}
+
+
+.container {
+  margin-top: 13em;
+}
+
+section h4 {
+  color: #fff;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5em;
+}
+
+section h1 {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  font-weight: 700;
+  font-family: 'space mono', monospace;
+}
+
+.btn {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1.3em;
+  font-size: 1.2em;
+}
+
+.work {
+  text-decoration: none;
+  color: #0e1420;
+  background: linear-gradient(to right, #ff7af8, #3bc0ff);
+  padding: 0.4em;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+.cv {
+  text-decoration: none;
+  color: #81d1ff;
+  background: #202020;
+  padding: 0.4em;
+  border-radius: 4px;
+  transition: 0.3s ease;
+  border: #81d1ff solid 1px;
+}
+
+.cv:hover {
+  background-color: #81d1ff;
+  color: #202020;
+}
+
+@media (max-width: 403px) {
+  
+  section h4 {
+    font-size: 0.5em;
+  }
+  
+  section h1 {
+    font-size: 1.2em;
+  }
+  
+  .btn {
+    font-size: 1em;
+  }
+  
+}
+
+@media (max-width: 303px) {
+  
+  section h4 {
+    font-size: 0.4em;
+  }
+  
+  section h1 {
+    font-size: 1em;
+  }
+  
+  .btn {
+    font-size: 0.8em;
+  }
+}
+
+.loader {
+  --ANIMATION-DELAY-MULTIPLIER: 70ms;
+  position: fixed;           /* يفضل ثابت على الشاشة */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;             /* يملأ الشاشة */
+  background: #0e1420;          /* غير اللون اللي تحبه */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  z-index:  20000;     
+  cursor: auto;     /* فوق كل العناصر */
+}
+
+.loader span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  transform: translateY(4rem);
+  animation: hideAndSeek 1s alternate infinite cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.loader .l { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 0); }
+.loader .o { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 1); }
+.loader .a { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 2); }
+.loader .d { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 3); }
+.loader .ispan { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 4); }
+.loader .n { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 5); }
+.loader .g { animation-delay: calc(var(--ANIMATION-DELAY-MULTIPLIER) * 6); }
+
+@keyframes hideAndSeek {
+  0% { transform: translateY(4rem); opacity: 0.3; }
+  100% { transform: translateY(0rem); opacity: 1; }
+}
