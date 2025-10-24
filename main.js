@@ -1,3 +1,11 @@
+// منع الانتقال لأعلى الصفحة عند الضغط على أزرار الفتح والقفل
+document.querySelectorAll('.menu-button a, .sidebar li:first-child a').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault(); // يمنع الانتقال لأعلى الصفحة
+  });
+});
+
+// دوال فتح وغلق السايدبار
 function showSidebar() {
   const sidebar = document.querySelector(".sidebar");
   if (sidebar) sidebar.classList.add("show");
@@ -8,6 +16,7 @@ function hideSidebar() {
   if (sidebar) sidebar.classList.remove("show");
 }
 
+// باقي الأكواد الخاصة بالمؤشر والصوت
 const cursorDot = document.querySelector("[data-cursor-dot]");
 const cursorOutline = document.querySelector("[data-cursor-outline]");
 const clickSound = document.getElementById("clickSound");
@@ -68,3 +77,14 @@ if (slide) {
       h1.style.fontWeight = "700"; // الوزن (bold مثلاً)
     });
   });
+
+const reveals = document.querySelectorAll(".card, .story, .skills, .logos, .footer-container");
+
+window.addEventListener("scroll", () => {
+  reveals.forEach((el) => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("show");
+    }
+  });
+});

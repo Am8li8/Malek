@@ -112,7 +112,29 @@ const projects = [
     tags: ["HTML", "CSS", "Responsive Design"],
     image: "img/malek.png",
     demoLink: "https://malek-mahmoud.vercel.app/",
-    codeLink: "https://github.com/Am8li8/malek-mahmoud",
+    codeLink: "https://github.com/Am8li8/Malek",
+    year: "2025",
+  },
+  {
+    id: 7,
+    title: "Smart Market Logo",
+    description: "Creaive logo design for a Super Market.",
+    category: "design",
+    tags: ["Logo Design", "Brand Identity", "Illustrator"],
+    image: "img/market.png",
+    demoLink: "https://www.behance.net/gallery/236319635/Smart-Basket-Logo",
+    codeLink: null,
+    year: "2025",
+  },
+  {
+    id: 8,
+    title: "Malek Website Presentation",
+    description: "Creaive presentation for a portfolio.",
+    category: "design",
+    tags: ["Website Design", "Portfolio Design", "VS Code"],
+    image: "img/mp.png",
+    demoLink: "https://www.behance.net/gallery/237203415/Malek-Website-Portfolio",
+    codeLink: null,
     year: "2025",
   },
 ];
@@ -458,3 +480,5 @@ document.addEventListener("click", function (e) {
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeModal();
 });
+
+
