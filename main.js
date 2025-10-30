@@ -1,11 +1,11 @@
-// منع الانتقال لأعلى الصفحة عند الضغط على أزرار الفتح والقفل
+/* ------------------ منع انتقال الصفحة عند الضغط على زر القائمة ------------------ */
 document.querySelectorAll('.menu-button a, .sidebar li:first-child a').forEach(link => {
-  link.addEventListener('click', event => {
-    event.preventDefault(); // يمنع الانتقال لأعلى الصفحة
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
   });
 });
 
-// دوال فتح وغلق السايدبار
+/* ------------------ فتح / غلق السايدبار ------------------ */
 function showSidebar() {
   const sidebar = document.querySelector(".sidebar");
   if (sidebar) sidebar.classList.add("show");
@@ -16,29 +16,25 @@ function hideSidebar() {
   if (sidebar) sidebar.classList.remove("show");
 }
 
-// باقي الأكواد الخاصة بالمؤشر والصوت
+/* ------------------ المؤشر المخصص + صوت الكليك ------------------ */
 const cursorDot = document.querySelector("[data-cursor-dot]");
 const cursorOutline = document.querySelector("[data-cursor-outline]");
 const clickSound = document.getElementById("clickSound");
 
 // حركة الماوس
-window.addEventListener("mousemove", function (e) {
-  const posX = e.clientX;
-  const posY = e.clientY;
+window.addEventListener("mousemove", (e) => {
+  const { clientX: x, clientY: y } = e;
 
-  cursorDot.style.left = `${posX}px`;
-  cursorDot.style.top = `${posY}px`;
+  cursorDot.style.left = `${x}px`;
+  cursorDot.style.top = `${y}px`;
 
   cursorOutline.animate(
-    {
-      left: `${posX}px`,
-      top: `${posY}px`,
-    },
+    { left: `${x}px`, top: `${y}px` },
     { duration: 500, fill: "forwards" }
   );
 });
 
-// تغيير الشكل عند المرور على اللينك
+// تغيير شكل المؤشر عند المرور على الروابط
 document.querySelectorAll("a").forEach((link) => {
   link.addEventListener("mouseenter", () => {
     cursorDot.classList.add("active");
@@ -52,38 +48,37 @@ document.querySelectorAll("a").forEach((link) => {
 
 // تشغيل الصوت عند الكليك
 window.addEventListener("click", () => {
-  clickSound.currentTime = 0; // علشان يعيد الصوت من الأول
+  clickSound.currentTime = 0;
   clickSound.play();
 });
 
+/* ------------------ إخفاء لودر عند التحميل ------------------ */
 window.addEventListener("load", () => {
-  document.querySelector(".loader").style.display = "none";
+  const loader = document.querySelector(".loader");
+  if (loader) loader.style.display = "none";
 });
 
-
+/* ------------------ سلايدر الشعارات (لو موجود) ------------------ */
 const slide = document.querySelector(".logo-slide");
 if (slide) {
-  const copy = slide.cloneNode(true);
-  document.querySelector(".logos").appendChild(copy);
+  const duplicate = slide.cloneNode(true);
+  document.querySelector(".logos").appendChild(duplicate);
 }
 
-  document.addEventListener("DOMContentLoaded", function() {
-    // نجيب كل عناصر h1 في الصفحة
-    const headings = document.querySelectorAll("h1");
-
-    // نعدل عليهم واحد واحد
-    headings.forEach(h1 => {
-      h1.style.fontFamily = "'Space Mono', monospace"; // font-family اللي عايزه
-      h1.style.fontWeight = "700"; // الوزن (bold مثلاً)
-    });
+/* ------------------ تغيير الخط لجميع عناصر H1 ------------------ */
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("h1").forEach(h1 => {
+    h1.style.fontFamily = "'Space Mono', monospace";
+    h1.style.fontWeight = "700";
   });
+});
 
+/* ------------------ انيميشن عند السكروول (reveal) ------------------ */
 const reveals = document.querySelectorAll(".card, .story, .skills, .logos, .footer-container");
 
 window.addEventListener("scroll", () => {
-  reveals.forEach((el) => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+  reveals.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add("show");
     }
   });

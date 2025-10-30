@@ -1,173 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects</title>
-    <meta
-      name="description"
-      content="I'm Malek Mahmoud, a Logo Designer & Web Developer. Welcome to my portfolio website where you can explore my projects and get in touch with me."
-    />
-    <meta property="og:title" content="Malek Mahmoud" />
-    <meta property="og:description" content="Logo Designer & Web Developer" />
-    <meta
-      property="og:image"
-      content="https://malekfolio.vercel.app/img/img.png"
-    />
-    <meta property="og:image:width" content="1920" />
-    <meta property="og:image:height" content="1080" />
-    <meta
-      property="og:url"
-      content="https://malek-mahmoud.vercel.app/project"
-    />
-    <meta property="og:type" content="website" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/pro.css" />
-  </head>
-  <body>
-    <div class="loader">
-      <span class="l">L</span>
-      <span class="o">O</span>
-      <span class="a">A</span>
-      <span class="d">D</span>
-      <span class="ispan">I</span>
-      <span class="n">N</span>
-      <span class="g">G</span>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Malek Mahmoud</title>
 
-    <header>
-      <nav>
-        <ul class="sidebar">
-          <li onclick="hideSidebar()">
-            <a href="#"><i class="fa-solid fa-xmark"></i></a>
-          </li>
+  <!-- SEO -->
+  <meta name="description" content="Explore the latest projects by Malek Mahmoud — Logo Designer, Brand Identity Creator, and Web Developer.">
+  <meta name="keywords" content="Malek, Malek Mahmoud, Malekfolio, Logo Designer, Brand Identity Designer, UI UX Designer, Web Developer, Portfolio, Egypt Designer, Graphic Designer, Web Designer, Frontend Developer, تصميم لوجو, مصمم شعارات, مصمم مواقع, مصمم هوية بصرية, تصميم برزنتيشن, تصميم سوشيال ميديا, خدمات تصميم, وكالة تصميم, هوية تجارية">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Projects | Malek Mahmoud">
+  <meta property="og:description" content="Logo Designer & Web Developer">
+  <meta property="og:image" content="https://malekfolio.vercel.app/img/img.png">
+  <meta property="og:url" content="https://malekfolio.vercel.app/project">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/pro.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Malek Mahmoud",
+    "alternateName": "Malek",
+    "url": "https://malekfolio.vercel.app",
+    "jobTitle": "Logo Designer & Web Developer",
+    "sameAs": [
+      "https://behance.net/am8li8",
+      "https://github.com/am8li8",
+      "https://t.me/am8li8",
+      "https://linkedin.com/in/am8li8"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="loader">
+    <span class="l">L</span><span class="o">O</span><span class="a">A</span><span class="d">D</span><span class="ispan">I</span><span class="n">N</span><span class="g">G</span>
+  </div>
+
+  <header>
+    <nav>
+      <ul class="sidebar">
+        <li onclick="hideSidebar()"><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a class="con" href="contact.html">Contact</a></li>
+      </ul>
+
+      <ul>
+        <li class="m"><a href="index.html">Malek</a></li>
+        <li class="menu-button" onclick="showSidebar()"><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+
+      <div class="header">
+        <h1 class="header-title">My Projects</h1>
+        <p class="header-subtitle">A collection of my latest work in design and development</p>
+      </div>
+
+      <div class="filter-container">
+        <div class="filter-wrapper">
+          <svg class="filter-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+          <button class="filter-btn" data-filter="development">Development</button>
+        </div>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid"></div>
+
+      <div class="cta-section">
+        <h2 class="cta-title">Ready to start a project?</h2>
+        <p class="cta-subtitle">I'm always excited to work on new projects and collaborate with great people.</p>
+        <a href="contact.html" class="cta-button">Get In Touch</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="cursor-dot" data-cursor-dot></div>
+  <div class="cursor-outline" data-cursor-outline></div>
+  <audio id="clickSound" src="audio.mp3" preload="auto"></audio>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h2>Malek</h2>
+        <p>Designer & Developer – Logos, Websites, and more</p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="project.html">Projects</a></li>
-          <li><a class="con" href="contact.html">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-
-        <ul>
-          <li class="m"><a href="index.html">Malek</a></li>
-          <li class="menu-button" onclick="showSidebar()">
-            <a href="#"><i class="fa-solid fa-bars"></i></a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main class="main-content">
-      <div class="container">
-        <!-- Header -->
-        <div class="header">
-          <h1 class="header-title">My Projects</h1>
-          <p class="header-subtitle">
-            A collection of my latest work in design and development
-          </p>
-        </div>
-
-        <!-- Filter Buttons -->
-        <div class="filter-container">
-          <div class="filter-wrapper">
-            <svg
-              class="filter-icon"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <polygon
-                points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"
-              ></polygon>
-            </svg>
-            <button class="filter-btn active" data-filter="all">
-              All Projects
-            </button>
-            <button class="filter-btn" data-filter="design">Design</button>
-            <button class="filter-btn" data-filter="development">
-              Development
-            </button>
-          </div>
-        </div>
-
-        <!-- Projects Grid -->
-        <div class="projects-grid" id="projectsGrid">
-          <!-- Projects will be populated by JavaScript -->
-        </div>
-
-        <!-- Call to Action -->
-        <div class="cta-section">
-          <h2 class="cta-title">Ready to start a project?</h2>
-          <p class="cta-subtitle">
-            I'm always excited to work on new projects and collaborate with
-            great people.
-          </p>
-          <a href="contact.html" class="cta-button">Get In Touch</a>
-        </div>
-      </div>
-    </main>
-
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
-    <audio id="clickSound" src="audio.mp3" preload="auto"></audio>
-
-    <footer>
-      <div class="footer-container">
-        <div class="footer-logo">
-          <h2>Malek</h2>
-          <p>Designer & Developer – Logos, Websites, and more</p>
-        </div>
-
-        <div class="footer-links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-social">
-          <h3>Follow Me</h3>
-          <a href="https://t.me/am8li8"><i class="fa-brands fa-telegram"></i></a>
-          <a href="https://behance.net/am8li8"><i class="fa-brands fa-behance"></i></a>
-          <a href="https://github.com/am8li8"><i class="fa-brands fa-github"></i></a>
-          <a href="https://linedin.com/in/am8li8"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="mailto:mane1234567855@gmail.com"
-            ><i class="fa-solid fa-envelope"></i
-          ></a>
-        </div>
       </div>
 
-<div id="projectModal" class="modal" aria-hidden="true">
-  <div class="modal-content">
-    <button class="modal-close" aria-label="Close modal">&times;</button>
-
-    <div class="modal-body">
-      <img id="modalImage" src="" alt="Project image" />
-      <h2 id="modalTitle">Project Title</h2>
-      <p id="modalDescription">Project description...</p>
-      <div id="modalTags" class="modal-tags"></div>
-      <div class="modal-links">
-        <a id="modalDemo" href="#" target="_blank">Live Demo</a>
-        <a id="modalCode" href="#" target="_blank">Source Code</a>
+      <div class="footer-social">
+        <h3>Follow Me</h3>
+        <a href="https://t.me/am8li8" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram"></i></a>
+        <a href="https://behance.net/am8li8" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-behance"></i></a>
+        <a href="https://github.com/am8li8" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/am8li8" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:mane1234567855@gmail.com"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
-  </div>
-</div>
 
-      
-      <div class="footer-bottom">
-        <p>© 2025 Malek. All rights reserved.</p>
-      </div>
-    </footer>
+    <div class="footer-bottom">
+      <p>© 2025 Malek. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <script src="pro.js"></script>
-  </body>
+  <script src="pro.js"></script>
+</body>
 </html>

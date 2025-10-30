@@ -137,6 +137,17 @@ const projects = [
     codeLink: null,
     year: "2025",
   },
+  {
+    id: 9,
+    title: "MStudio Logo Design",
+    description: "Creative Logo Design.",
+    category: "design",
+    tags: ["Logo Design", "Studio Design", "Illustrator"],
+    image: "img/mp.png",
+    demoLink: "https://www.behance.net/gallery/237254155/M-Studio-Logo",
+    codeLink: null,
+    year: "2025",
+  },
 ];
 
 // DOM Elements
