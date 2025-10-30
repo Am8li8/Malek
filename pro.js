@@ -143,7 +143,7 @@ const projects = [
     description: "Creative Logo Design.",
     category: "design",
     tags: ["Logo Design", "Studio Design", "Illustrator"],
-    image: "img/mp.png",
+    image: "img/Artboard 1.png",
     demoLink: "https://www.behance.net/gallery/237254155/M-Studio-Logo",
     codeLink: null,
     year: "2025",
