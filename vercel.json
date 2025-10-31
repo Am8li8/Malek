@@ -1,12 +1,39 @@
-{ "cleanUrls": true, "rewrites": 
-[ 
-{ "source": "/about", "destination": "/about.html" }, 
-{ "source": "/contact", "destination": "/contact.html" }, 
-{ "source": "/project", "destination": "/project.html" } ], 
-
-
-"headers": 
-[ { "source": "/(.*)\\.(jpg|jpeg|png|gif)", "headers": 
-[ { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }, 
-{ "key": "Pragma", "value": "no-cache" }, { "key": "Expires", "value": "0" } 
-] } ] }
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "https://malek-mahmoud.vercel.app/(.*)",
+      "destination": "https://malekfolio.vercel.app/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://malekfolio.vercel.app/$1",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/project", "destination": "/project.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
+        { "key": "Content-Security-Policy", "value": "upgrade-insecure-requests" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "no-referrer-when-downgrade" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(jpg|jpeg|png|gif|svg|webp|ico)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
+        { "key": "Pragma", "value": "no-cache" },
+        { "key": "Expires", "value": "0" }
+      ]
+    }
+  ]
+}
